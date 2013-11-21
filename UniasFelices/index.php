@@ -6,6 +6,8 @@
     </head>
     <body>
         <p>Aquí estamos desde GitHub.... Higuita homosexual!!</p>
+        
+        <h1>Maricon!</h1>
         <?php
         // put your code here
         ?>

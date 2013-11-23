@@ -2,3 +2,10 @@
 
 1. Recordar usar la función nvl de sql para controlar que si ya no hay más datos en la base de datos 
 no vaya a salir en blanco algo, sinoq ue salga cero (0) o que salga tabla vacía o algo así.
+
+2. TODO atributo de cantidad debe tener un check (creado en php porque mysql no lo soporta) para que
+ cantidad > 0.
+
+3. Las relaciones del arco y los subtipos deben ser controladas con un check (como nos muestra pacho 
+en las presentaciones), por lo tanto deben ser controladas por php en nuestro caso.
+

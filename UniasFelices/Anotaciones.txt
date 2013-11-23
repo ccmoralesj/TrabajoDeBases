@@ -1,0 +1,4 @@
+﻿Aquí la idea es colocar cosas que creamos que se deben llevar a cabo luego o para tener en cuenta:
+
+1. Recordar usar la función nvl de sql para controlar que si ya no hay más datos en la base de datos 
+no vaya a salir en blanco algo, sinoq ue salga cero (0) o que salga tabla vacía o algo así.

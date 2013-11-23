@@ -18,6 +18,6 @@ nivelEstudio varchar2(10) not null
 
 CREATE TABLE carrito(
 manicurista number(10) references manicurista,
-codigo number(4) primary key,
-
+cod number(4) primary key,
+color varchar2(15) not null
 );

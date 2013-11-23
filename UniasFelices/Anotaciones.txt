@@ -1,13 +1,28 @@
 ﻿Aquí la idea es colocar cosas que creamos que se deben llevar a cabo luego o para tener en cuenta:
 
+IMPORTANTE: El arco se dejará para después
+
+
 1. Recordar usar la función nvl de sql para controlar que si ya no hay más datos en la base de datos 
 no vaya a salir en blanco algo, sinoq ue salga cero (0) o que salga tabla vacía o algo así.
 
 2. TODO atributo de cantidad debe tener un check (creado en php porque mysql no lo soporta) para que
- cantidad > 0.
+ cantidad > 0... digase CarritoxItem, productoXcompra, ITEM(precioCompra > 0) y Prodcuto (Precioventa > 0).
 
 3. Las relaciones del arco y los subtipos deben ser controladas con un check (como nos muestra pacho 
 en las presentaciones), por lo tanto deben ser controladas por php en nuestro caso.
 
 4. (Opcional) En nivelDeEstudio hacer un check (php) para que sea bachiller, tecnico o tecnologo no más.
 
+5. Hay que hacer un Check (php), para controlar que el TIPO de la entidad CITA (ver BaseDeDatos.sql)
+Sólo pueda ser 'D'(Domicilio) o 'L'(Local).
+
+6. 
+
+
+
+
+
+NOTA: Yo estos haciendo el modelo con todos los juguetes y checks en Oracle para ver sis i está todo bien.
+
+NOTA2: NO OLVIDAR BORRRAR LOS COMANDOS DE CREACIÓN QUE SON PARA ORACLE... SOLO DEJAR LOS DE SQL.

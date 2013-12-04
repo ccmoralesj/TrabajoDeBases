@@ -4,7 +4,6 @@ $(document).on("ready", main);
 function main(){
 	
 
-
 	$('#barraBusqueda input').keydown(function(event) {
 		//alert("hola3423");
 

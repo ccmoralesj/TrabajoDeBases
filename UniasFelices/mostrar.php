@@ -1,4 +1,6 @@
 <?php
+
+
 $nombre=$_POST['nombre'];
 $codigo=$_POST['codigo'];
 $con=mysql_connect("localhost","root","");

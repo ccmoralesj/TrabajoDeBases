@@ -3,19 +3,8 @@
 IMPORTANTE: El arco se dejará para después
 
 
-1. Recordar usar la función nvl de sql para controlar que si ya no hay más datos en la base de datos 
-no vaya a salir en blanco algo, sinoq ue salga cero (0) o que salga tabla vacía o algo así.
-
-2. Las relaciones del arco y los subtipos deben ser controladas con un check (como nos muestra pacho 
-en las presentaciones), por lo tanto deben ser controladas por php en nuestro caso.
-
-3. (OPCIONAL) En nivelDeEstudio hacer un check (php) para que sea bachiller, tecnico o tecnologo no más.
-
-4. Hay que hacer un Check (php), para controlar que el TIPO de la entidad CITA (ver BaseDeDatos.sql)
-Sólo pueda ser 'D'(Domicilio) o 'L'(Local).
+1. Recordar usar la función nvl, o alguna otra, de sql para controlar que si ya no hay más datos en la base de datos 
+no vaya a salir en blanco algo, sino que salga cero (0) o que salga tabla vacía o algo así.
 
 
-
-
-
-NOTA: Yo estos haciendo el modelo con todos los juguetes y checks en Oracle para ver sis i está todo bien.
+NOTA: Yo estos haciendo el modelo con todos los juguetes y checks en Oracle para ver si si está todo bien.

@@ -24,7 +24,7 @@ if($numBusqueda=="1"){
     $consulta=  mysql_query("SELECT c.cod, c.color, h.nombre, ci.cantidad, ci.cod_carrito FROM carritoxitem ci, carrito c, item h WHERE ci.cod_carrito ='$var' AND c.cod ='$var'");
     $nf = mysql_num_rows($consulta);
     if ($nf == 0)
-        echo "Este eleento no se encuenra en la base d ea datos";
+        echo "Este elemento no se encuentra en la base de datos";
     else {
         while ($datos = mysql_fetch_array($consulta)) {
             echo $datos['cod'] . "->";
@@ -43,7 +43,7 @@ if($numBusqueda=="1"){
     $consulta=  mysql_query("SELECT c.cod, c.color, h.nombre, ci.cantidad, ci.cod_carrito, ci.cod_herramienta FROM carritoxitem ci, carrito c, item h WHERE ci.cod_carrito ='$var1' and ci.cod_herramienta ='$var2'");
     $nf = mysql_num_rows($consulta);
     if ($nf == 0)
-        echo "Este eleento no se encuenra en la base d ea datos";
+        echo "Este elemento no se encuentra en la base de datos";
     else {
         while ($datos = mysql_fetch_array($consulta)) {
             echo $datos['cod'] . "->";

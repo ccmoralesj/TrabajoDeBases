@@ -1,51 +1,174 @@
 #fondo{
-	width: 200px;
-  height: 200px;
-  display: block;
+    width: 200px;
+    height: 200px;
+    display: block;
 }
 
 #fondo:after{
-	content: "";
-  background:url("../img/header.jpg") ;
-  background-size: cover; 	
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
+    content: "";
+    background:url("../img/header.jpg") ;
+    background-size: cover; 	
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
 
 #barraBusqueda{
 
-	width: 100%;
-	height: 40px;
-	position: absolute;
-	background: rgba(0,0,0,0.85);
-	top:0;
-	left: 0;
-	padding: 10;
-	margin: 0;
-	
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    background: rgba(0,0,0,01.35);
+    top:0;
+    left: 0;
+    padding: 10px;
+    margin: 0;
+
 
 }
 
 
 #inputBusqueda{
--webkit-border-radius: 8px;
--moz-border-radius: 8px;
-border-radius: 8px;
-border: 0;
-height: 30px;
-width: 200px;
-float: right;
-margin-right: 50px;
-margin-top: 8px;
-opacity: 0.8;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 0;
+    height: 30px;
+    width: 200px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 8px;
+    opacity: 01.3;
 
 }
 
+
 .cambioColor{
-background: rgba(44,55,98,0.85);
+    background: rgba(44,55,98,01.35);
+}
+
+
+#container{
+    margin-top: 150px;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: auto;
+    width: 70%;
+    padding: 25px;
+    display: table;
+    background-color: rgba(0,0,0,0.3);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+h2{
+    color: white;
+}
+
+.Elemento{
+    vertical-align: center;
+
+    position: static;
+    width: 300px !important;
+    padding: 40px;
+    margin-right: 95px !important;
+
+    display: table-cell;
+    background-color: rgba(0,0,0,0.7);
+    
+    -webkit-transition: background-color linear .5s;
+    -moz-transition: background-color linear .5s;
+    -o-transition: background-color linear .5s;
+    transition: background-color linear .5s;
+
+}
+
+.Elemento:first-child{
+    -webkit-border-radius: 20px 0 0 20px;
+    -moz-border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 20px;
+}
+
+.Elemento:last-child{
+    -webkit-border-radius: 0 20px  20px 0;
+    -moz-border-radius: 0 20px  20px 0;
+    border-radius: 0 20px  20px 0;
+}
+
+.Elemento:hover{
+    background: rgba(0,0,0,0.5);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.muestra{
+    visibility: hidden;
+    position: fixed;
+}
+
+.eliminar{
+    
+    visibility: hidden;
+    position: fixed;
+}
+
+.actualizar{
+    visibility: hidden;
+    position: fixed;
+}
+
+.insertar{
+    visibility: hidden;
+    position: fixed;
+}
+
+ul li{
+    cursor: pointer;
+    list-style: none;
+    padding: 13px 20px 13px 20px;
+    margin-top: 0;
+    margin-right: -5px;
+    margin-left:  -5px;
+    color:white;
+    -webkit-transition: text-shadow linear .8s;
+    -moz-transition: text-shadow linear .8s;
+    -o-transition: text-shadow linear .8s;
+    transition: text-shadow linear .85s;
+    
+    -webkit-transition: color linear .8s;
+    -moz-transition: color linear .8s;
+    -o-transition: color linear .8s;
+    transition: color linear .85s;
+
+
+}
+
+ul li:hover{
+    color: black;
+    
+    text-shadow: white 1px 1px 10px;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.mostrando{
+    visibility: visible;
+    position: relative;
+}
+
+
+.consultaForm{
+    margin:0;
+    padding: 20px;
 }

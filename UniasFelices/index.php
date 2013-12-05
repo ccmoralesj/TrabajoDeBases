@@ -8,21 +8,23 @@
         <script src="js/libs/jquery-2.0.2.min.js"></script>
         <script src="js/buscador.js"></script>
         <script src="js/radioActualizar.js"></script>
+        <script src="js/mostrar.js"></script>
         <!--cree codigo en radioActualizar para no colocarlo en el index-->   
     </head>
 
 
-
-
-
     <body >
 
+        <?php
+        $con = mysql_connect("localhost", "root", "");
+        mysql_select_db("spa");
+        $consultaItem = mysql_query("select * from item");
+        ?>
 
         <div id="fondo"><!-- /nada en especial, solo pone transparencia en el fondo -->
 
             <header id="header" class="">
-
-            </header><!-- /header -->	
+            	
             <div id="barraSuperior">
                 <div id="barraBusqueda">
                     <form action="" method="get" id="formBusqueda">
@@ -35,123 +37,113 @@
                     </form>
                 </div><!-- /BarraBuscador -->
             </div>
-
-            <h1>Spa Uñas felices</h1>		
-        </header><!-- /header -->
-
+            </header><!-- /header, barra busqeueda -->
 
 
         <!--        
                Arrancan el contenido de la pag-->
         <div id="container">
+
             
-            
-            <form action="consultasEnvios.php" method="post"  enctype="multipart/form-data">
-                <button type="submit" name="consulta" value="1" >Consulta1</button>
-                <button type="submit" name="consulta" value="2" >Consulta2</button>
-               
-            </form>
-            
-            <form action="busquedas.php" method="post"  enctype="multipart/form-data">
-                <h3> busqueda 1</h3>
-                <input type="text" name="campo" value="codCarrito"/>
-                <button type="submit" name="busqueda" value="1">enviar</button>
-                    <h3>busqueda 2</h3>
-                    <input type="text" name="campoCarrito" value="codCarrito"/>
-                    <input type="text" name="campoItem" value="codItem"/>
-                    <button type="submit" name="busqueda" value="2">enviar</button>
-            </form>
-            <h2>Entidad Carrito</h2>
 
 
             <!-- Aca comienza el desarrolo de insercion, eliminacion y actualizacion para la entidad carrito 
             ************************************************************************************************
             -->
-            <?php
-//            
-//            Primero mediante de php obtengo los valores en la  tabla carrito los 
-//            cuales almacenamos en el array "datos"
+
+
+            <!--Primero mediante de php obtengo los valores en la  tabla carrito los 
+            cuales almacenamos en el array "datos"
             ///////////////////////////////////////////////////////////////////
-            //////////////////////////////////////////////////////////////////
-            $con = mysql_connect("localhost", "root", "");
-            mysql_select_db("spa");
-            $consult = mysql_query(" select * from carrito");
-            $nf = mysql_num_rows($consult);
-            if ($nf == 0) {
-                echo "No hay información de carritos.";
-            } else {
-                while ($datos = mysql_fetch_array($consult)) {
-                    echo $datos['cod'] . "-";
-                    echo $datos['color'];
-                    ?><br><?php
-                }
-            }
-            ///////fin php
-            ?>
+            //////////////////////////////////////////////////////////////////-->
+           
             <!--                    
              MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
              ------------- CARRITO----Opciones de insertar, eliminar y actualizar--------------------------
              WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW-->
-            <div id="carrito">
+            
+            <div id="carrito" class="Elemento" >
+                <!--Muestra carrito-->
+                <h2>Entidad Carrito</h2>
+                <div id="muestraCarrito" class="muestra" >
+                <?php
+                $consult = mysql_query(" select * from carrito");
+                $nf = mysql_num_rows($consult);
+                if ($nf == 0) {
+                    echo "No hay información de carritos.";
+                } else {
+                    while ($datos = mysql_fetch_array($consult)) {
+                        echo $datos['cod'] . "-";
+                        echo $datos['color'];
+                        ?><br><?php
+                    }
+                }
+                ///////fin php
+                ?>
+            </div>  
+           <!--fin mustra camino-->
                 <!--Opcion para insercion de elementos a carrito-->
                 <ul>
                     <form  action="consultas.php" method="post"  enctype="multipart/form-data">
-                        <li class="consultaForm"><a href="#">Insertar</a><br>
-                            <label for="laberlcodigo">Codigo:</label>
+                        <li class="consultaForm" id="insertarCarritLi" contextmenu="insertarCarrito">Insertar
+                            <div id="insertarCarrito" class="insertar"   >
+                            <label for="laberlcodigo">Codigo:</label><br>
                             <input name="codigo" type="number"  size="27" required/><br>
                             <label for="laberlcolor">Color:</label>
                             <input name="color" type="text" size="27" required/><br>
                             <input name="entidad" type="hidden" size="27" value="carrito" />
                             <input name="tipo" type="hidden" size="27" value="insertar"/>
+                            
                             <button  type="submit">Insertar</button>
+                            </div>
                     </form>
                     <!--Opcion para eliminar elemento en carrito-->
                     </li>
-
-                    <li class="consultaForm"><a href="">Eliminar</a>
-
+                       
+                    <li class="consultaForm" contextmenu="eliminarCarrito">Eliminar
+                             <div id="eliminarCarrito" class="eliminar" >
                         <form  action="consultas.php" method="post"  enctype="multipart/form-data">
 
-
+                            
                             <?php
-                            $con = mysql_connect("localhost", "root", "");
-                             mysql_select_db("spa");
-                             $consult = mysql_query(" select * from carrito");
-                            $nf = mysql_num_rows($consult);
-                            if ($nf == 0) {
-                                echo "No hay información de carritos.";
-                            } else {
-                                while ($datos = mysql_fetch_array($consult)) {
-                                    ?>  <input name="radio" type="radio" value="<?php echo $datos['cod'] ?>">
-                                    <?php
-                                    echo $datos['cod'] . "-Tu mama";
-                                    echo $datos['color'];
-    
-                                    ?><br><?php
-                                }
-                                ?>
-                                <input name="entidad" type="hidden" size="27" value="carrito" />
-                                <input name="tipo" type="hidden" size="27" value="eliminar"/>
-                                <button  type="submit">Eliminar</button>
-                                
-                                <?php
-                            }
-                            ?>
-                        </form>
-                    <!--Opcion para actualir algun elemento la tabla carrito-->
-                    </li>
-                    <li class="consultaForm"><a href="">Acualizar</a>
-                        <form  action="consultas.php" method="post"  enctype="multipart/form-data">
-                            <?php
-                            $con = mysql_connect("localhost", "root", "");
-                            mysql_select_db("spa");
                             $consult = mysql_query(" select * from carrito");
                             $nf = mysql_num_rows($consult);
                             if ($nf == 0) {
                                 echo "No hay información de carritos.";
                             } else {
                                 while ($datos = mysql_fetch_array($consult)) {
-                                    ?>  <input name="radioactualizar" type="radio" value="<?php echo $datos['cod'] ?>">
+                                    ?>  <input name="radio" type="radio" checked value="<?php echo $datos['cod']  ?>">
+                                    <?php
+                                    ////echo "<option value='" . $datos[cod] . "'> " . $datos[cod] . "</option>";
+                                    
+                                    echo $datos['cod'] . "-> ";
+                                    echo $datos['color'];
+                                    ?><br><?php
+                                }
+                                ?>
+                                <input name="entidad" type="hidden" size="27" value="carrito" />
+                                <input name="tipo" type="hidden" size="27" value="eliminar"/>
+                                <button  type="submit">Eliminar</button>
+                                </div>
+                                <!--fin div eliminar-->
+                                
+                                <?php
+                            }
+                            ?>
+                        </form>
+                        <!--Opcion para actualir algun elemento la tabla carrito-->
+                    </li>
+                    <li class="consultaForm" contextmenu="actualizarCarrito">Actualizar
+                        <form  action="consultas.php" method="post"  enctype="multipart/form-data">
+                            <div id="actualizarCarrito" class="actualizar">
+                            <?php
+                            $consult = mysql_query(" select * from carrito");
+                            $nf = mysql_num_rows($consult);
+                            if ($nf == 0) {
+                                echo "No hay información de carritos.";
+                            } else {
+                                while ($datos = mysql_fetch_array($consult)) {
+                                    ?>  <input name="radioactualizar" type="radio" checked value="<?php echo $datos['cod'] ?>">
                                     <?php
                                     echo $datos['cod'] . "-";
                                     echo $datos['color'];
@@ -160,11 +152,12 @@
                                 ?>
                                 <input name="entidad" type="hidden" size="27" value="carrito" />
                                 <input name="tipo" type="hidden" size="27" value="actualizar"/>
+                                
                                 <div id="cargar1">
 
                                 </div>
                                 <button  type="submit">Actualizar</button>
-
+                                </div>
                                 <?php
                             }
                             ?>
@@ -173,17 +166,19 @@
                     </li>
                 </ul>
             </div>
+            <!--fin carrito-->
 
-            <h2>Entidad CarritoxItem</h2>
+            
 
-            <!-- Aca comienza el desarrolo de insercion, eliminacion y actualizacion para la entidad carritoxitem
- ************************************************************************************************
-            -->
-
-            <div id="carritoxitem">
+<!--           MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+             ------------- CARRITOxITEM----Opciones de insertar, eliminar y actualizar--------------------------
+           WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW-->
+            
+            <div id="carritoxitem" class ="Elemento">
+                <h2>Entidad CarritoxItem</h2>
+                
+                <div id="muestraCarritoxItem" class="muestra">
                 <?php
-                $con = mysql_connect("localhost", "root", "");
-                mysql_select_db("spa");
                 $consult = mysql_query(" select * from carritoxitem");
                 $nf = mysql_num_rows($consult);
                 if ($nf == 0) {
@@ -197,17 +192,18 @@
                     }
                 }
                 ?>
-
+                </div>  
+                <!--fin muesta CarritoxItem-->
                 <ul>
 
 
-                    <li class="consultaForm"><a href="#">Insertar</a><br>
+                    
+                    <li class="consultaForm" contextmenu="insertarCarritoItem">Insertar
                         <form  action="consultas.php" method="post"  enctype="multipart/form-data">
+                            <div id="insertarCarritoItem" class="insertar">
                             <label for="laberlcantidad">Carrito:</label><br>
                             <SELECT name="cod_carrito" required>
                                 <?php
-                                $con = mysql_connect("localhost", "root", "");
-                                mysql_select_db("spa");
                                 $consult = mysql_query(" select * from carrito");
                                 $nf = mysql_num_rows($consult);
                                 if ($nf == 0) {
@@ -233,17 +229,17 @@
                             <label for="laberlcantidad">Herramienta:</label><br>
                             <SELECT name="cod_herramienta" required >
                                 <?php
-                                $con = mysql_connect("localhost", "root", "");
-                                mysql_select_db("spa");
-                                $consult = mysql_query(" select * from item");
-                                $nf = mysql_num_rows($consult);
+                                //$consult = mysql_query(" select * from item");
+                                $consultaItem = mysql_query(" select * from item");
+
+                                $nf = mysql_num_rows($consultaItem);
                                 if ($nf == 0) {
                                     ?>
                                 </SELECT><br>
                                 <?php
                                 echo "No hay información de herramientas.";
                             } else {
-                                while ($datos = mysql_fetch_array($consult)) {
+                                while ($datos = mysql_fetch_array($consultaItem)) {
 
 
 
@@ -258,28 +254,28 @@
                             <br>
 
                             <label for="laberlcantidad">Cantidad:</label>
-                            <input name="cantidad" type="number" size="27" required/><br>
+                            <input name="cantidad" type="number" size="27" required /><br>
                             <input name="entidad" type="hidden" size="27" value="carritoxitem" />
                             <input name="tipo" type="hidden" size="27" value="insertar"/>
+                    
                             <button  type="submit">Insertar</button>
+                            </div>
                         </form>
                     </li>
-                    <li class="consultaForm"><a href="">Eliminar</a>
+                    <li class="consultaForm" contextmenu="EliminarCarritoItem">Eliminar
 
                         <form  name="borrarcarritoxitem" action="consultas.php" method="post"  enctype="multipart/form-data">
 
-
+                            <div id="EliminarCarritoItem" class="eliminar">
                             <?php
-                            $con = mysql_connect("localhost", "root", "");
-                            mysql_select_db("spa");
                             $consult = mysql_query(" select * from carritoxitem");
                             $nf = mysql_num_rows($consult);
                             if ($nf == 0) {
                                 echo "No hay información de carritosxitem.";
                             } else {
                                 while ($datos = mysql_fetch_array($consult)) {
-                                    ?>  <input name="radiocarrito" type="radio" value="<?php echo $datos['cod_carrito'] ?>">
-                                    <input name="radiocarrito" style="visibility:hidden;" type="radio" size="27" value="<?php echo $datos['cod_herramienta'] ?>" />
+                                    ?>  <input name="radiocarrito" type="radio" checked value="<?php echo $datos['cod_carrito'] ?>">
+                                    <input name="radiocarrito" style="visibility:hidden;" type="radio" checked size="27" value="<?php echo $datos['cod_herramienta'] ?>" />
 
                                     <?php
                                     echo $datos['cod_carrito'] . "-";
@@ -291,8 +287,9 @@
                                 <input name="radioherramienta" id="radioh" type="hidden" size="27" value="" />
                                 <input name="entidad" type="hidden" size="27" value="carritoxitem" />
                                 <input name="tipo" type="hidden" size="27" value="eliminar"/>
+                                
                                 <button  type="submit">Eliminar</button>
-
+                                </div>
 
                                 <?php
                             }
@@ -301,19 +298,19 @@
                         </form>
 
                     </li>
-                    <li class="consultaForm"><a href="">Acualizar</a>
+                    <li class="consultaForm" contextmenu="actualizarCarritoItem">Actualizar
                         <form  action="consultas.php" method="post"  enctype="multipart/form-data">
+                            
+                            <div id="actualizarCarritoItem" class="actualizar">
                             <?php
-                            $con = mysql_connect("localhost", "root", "");
-                            mysql_select_db("spa");
                             $consult = mysql_query(" select * from carritoxitem");
                             $nf = mysql_num_rows($consult);
                             if ($nf == 0) {
                                 echo "No hay información de CarritoXItems.";
                             } else {
                                 while ($datos = mysql_fetch_array($consult)) {
-                                    ?>  <input name="radioactualizar2" type="radio" value="<?php echo $datos['cod_carrito'] ?>">
-                                    <input name="radioactualizar2" style="visibility:hidden;" type="radio" size="27" value="<?php echo $datos['cod_herramienta'] ?>" />
+                                    ?>  <input name="radioactualizar2" type="radio" checked value="<?php echo $datos['cod_carrito'] ?>">
+                                    <input name="radioactualizar2" style="visibility:hidden;" type="radio"  checked size="27" value="<?php echo $datos['cod_herramienta'] ?>" />
                                     <?php
                                     echo $datos['cod_carrito'] . "-";
                                     echo $datos['cod_herramienta'] . "-";
@@ -323,11 +320,14 @@
                                 ?>
                                 <input name="radioherramienta" id="radioh2" type="hidden" size="27" value="" />
                                 <input name="entidad" type="hidden" size="27" value="carritoxitem" />
+                                
                                 <input name="tipo" type="hidden" size="27" value="actualizar"/>
                                 <div id="cargar2">
 
                                 </div>
                                 <button  type="submit">Actualizar</button>
+                                </div>
+                                <!--fin actualizar mostrar-->
                                 <?php
                             }
                             ?>
@@ -342,14 +342,15 @@
 
             </div>
 
-            <h2>Entidad Herramienta</h2>
-            <!-- Aca comienza el desarrolo de insercion, eliminacion y actualizacion para la entidad herramienta
-************************************************************************************************
-            -->
-            <div id="herramienta">
+<!--       MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+             ------------- HERRAMIENTA----Opciones de insertar, eliminar y actualizar--------------------------
+           WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW-->
+            
+            
+            <div id="herramienta" class="Elemento">
+                <h2>Entidad Herramienta</h2>
+                <div id="muestraHerramienta" class="muestra">
                 <?php
-                $con = mysql_connect("localhost", "root", "");
-                mysql_select_db("spa");
                 $consult = mysql_query(" select codigo,nombre,precio_compra from item");
                 $nf = mysql_num_rows($consult);
                 if ($nf == 0) {
@@ -363,12 +364,14 @@
                     }
                 }
                 ?>
-
+                </div>
+                <!--fin muestra-->
                 <ul>
                     <form  action="consultas.php" method="post"  enctype="multipart/form-data">
-                        <li class="consultaForm"><a href="#">Insertar</a><br>
-                            <label for="laberlcodigo">Codigo:</label>
-                            <input name="codigo" type="number"  size="27" required/><br>
+                        <li class="consultaForm" contextmenu="insertarHerramienta">Insertar
+                            <div id="insertarHerramienta" class="insertar">
+                            <label for="laberlcodigo">Codigo:</label><br>
+                            <input name="codigo" type="number"  size="26" width="200" required/><br>
                             <label for="laberlcolor">Nombre:</label>
                             <input name="nombre" type="text" size="27" required/><br>
                             <label for="label">Precio de Compra:</label>
@@ -376,25 +379,25 @@
                             <input name="entidad" type="hidden" size="27" value="herramienta" />
                             <input name="tipo" type="hidden" size="27" value="insertar"/>
                             <button  type="submit">Insertar</button>
+                            </div>
+                            <!--fin insertar-->
                     </form>
 
                     </li>
 
-                    <li class="consultaForm"><a href="">Eliminar</a>
+                    <li class="consultaForm" contextmenu="eliminarHerramienta">Eliminar
 
                         <form  action="consultas.php" method="post"  enctype="multipart/form-data">
 
-
+                            <div id="eliminarHerramienta" class="eliminar">    
                             <?php
-                            $con = mysql_connect("localhost", "root", "");
-                            mysql_select_db("spa");
-                            $consult = mysql_query(" select * from item");
-                            $nf = mysql_num_rows($consult);
+                            $consultaItem = mysql_query(" select * from item");
+                            $nf = mysql_num_rows($consultaItem);
                             if ($nf == 0) {
                                 echo "No hay información de Herramientas.";
                             } else {
-                                while ($datos = mysql_fetch_array($consult)) {
-                                    ?>  <input name="radio" type="radio" value="<?php echo $datos['codigo'] ?>">
+                                while ($datos = mysql_fetch_array($consultaItem)) {
+                                    ?>  <input name="radio" type="radio" checked value="<?php echo $datos['codigo'] ?>">
                                     <?php
                                     echo $datos['codigo'] . "-";
                                     echo $datos['nombre'] . "-";
@@ -405,24 +408,26 @@
                                 <input name="entidad" type="hidden" size="27" value="herramienta" />
                                 <input name="tipo" type="hidden" size="27" value="eliminar"/>
                                 <button  type="submit">Eliminar</button>
+                            </div>
                                 <?php
                             }
                             ?>
 
 
                         </form></li>
-                    <li class="consultaForm"><a href="">Acualizar</a>
+                        <li class="consultaForm" contextmenu="actualizarHerramienta">Actualizar
+                        <div id="actualizarHerramienta" class="actualizar">
                         <form  action="consultas.php" method="post"  enctype="multipart/form-data">
                             <?php
-                            $con = mysql_connect("localhost", "root", "");
-                            mysql_select_db("spa");
-                            $consult = mysql_query(" select * from item");
-                            $nf = mysql_num_rows($consult);
+                            //$consult = mysql_query(" select * from item");
+                            $consultaItem = mysql_query(" select * from item");
+
+                            $nf = mysql_num_rows($consultaItem);
                             if ($nf == 0) {
                                 echo "No hay información de Herramientas.";
                             } else {
-                                while ($datos = mysql_fetch_array($consult)) {
-                                    ?>  <input name="radioactualizar3" type="radio" value="<?php echo $datos['codigo'] ?>">
+                                while ($datos = mysql_fetch_array($consultaItem)) {
+                                    ?>  <input name="radioactualizar3" type="radio" checked value="<?php echo $datos['codigo'] ?>">
                                     <?php
                                     echo $datos['codigo'] . "-";
                                     echo $datos['nombre'] . "-";
@@ -436,6 +441,7 @@
 
                                 </div>
                                 <button  type="submit">Actualizar</button>
+                                </div>
                                 <?php
                             }
                             ?>
@@ -446,7 +452,30 @@
                 </ul>
             </div>
 
+
         </div><!--container-->	
+        
+        <!--barras-->
+        <div id="barras">
+            
+            
+            <form action="consultasEnvios.php" method="post"  enctype="multipart/form-data" id="barraConsulta" class="barra">
+                            <button type="submit" name="consulta" value="1" >Consulta1</button>
+                            <button type="submit" name="consulta" value="2" >Consulta2</button>
+
+                        </form>
+
+                        <form action="busquedas.php" method="post"  enctype="multipart/form-data" id="barraBusquedaForm" class="barra">
+                            <h3> busqueda 1</h3>
+                            <input type="text" name="campo" value="codCarrito"/>
+                            <button type="submit" name="busqueda" value="1">enviar</button>
+                            <h3>busqueda 2</h3>
+                            <input type="text" name="campoCarrito" value="codCarrito"/>
+                            <input type="text" name="campoItem" value="codItem"/>
+                            <button type="submit" name="busqueda" value="2">enviar</button>
+                        </form>
+        </div>
+        <!--finBarras-->
     </div><!--fondor-->
 </body>
 </html>

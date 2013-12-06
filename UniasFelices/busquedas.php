@@ -41,7 +41,9 @@ if($numBusqueda=="1"){
     $nf = mysql_num_rows($consulta);
     
     if ($nf == 0)
-        echo "Este elemento no se encuentra en la base d datos";
+
+      
+        echo "Este elemento no se encuentra en la base de datos";
     else {
         echo "los elementos son: <br>";
         while ($datos = mysql_fetch_array($consulta)) {

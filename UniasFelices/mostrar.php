@@ -1,3 +1,13 @@
+<html>
+    <head>
+         <link rel="stylesheet" href="css/general.css" />
+    </head>
+        
+    <body>
+        <section class="todo">
+            
+            <div class="contenedor">
+    
 <?php
 
 
@@ -44,3 +54,7 @@ $con=mysql_connect("localhost","root","");
      <?php
  }
 ?>
+            
+            </div>
+        </section>
+    </body>

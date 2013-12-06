@@ -25,12 +25,15 @@ if ($entidad == "carrito") {
 
 //eliminar
     }else if ($tipo == "eliminar") {
+       echo"Elemento Eliminado correctamente<br>";
         $codigo = $_POST['radio'];
+        
         $consult = mysql_query("DELETE FROM carritoxitem WHERE cod_carrito=$codigo");
         $consult = mysql_query("DELETE FROM carrito WHERE cod=$codigo");
         echo $codigo;
 //actualizar
     } else {
+        echo "Elemento actualizado correctamente";
         $color = $_POST['color'];
         $codigo = $_POST['cod'];
         $consult = mysql_query("UPDATE carrito SET color='$color' WHERE cod=$codigo");
@@ -52,11 +55,15 @@ if ($entidad == "carrito") {
             $consult = mysql_query("insert into herramienta (codherr) values ($codigo)");
         }
     } else if ($tipo == "eliminar") {
+        
+        echo "Elemento eliminado correctamente";
         $codigo = $_POST['radio'];
         $consult = mysql_query("DELETE FROM carritoxitem WHERE cod_herramienta=$codigo");
         $consult = mysql_query("DELETE FROM herramienta WHERE codherr=$codigo");
         $consult = mysql_query("DELETE FROM item WHERE codigo=$codigo");
     } else {
+        
+        echo "Elemento actualizado correctamente";
         $nombre = $_POST['nombre'];
         $codigo = $_POST['cod'];
         $precio = $_POST['precio'];
@@ -78,11 +85,15 @@ if ($entidad == "carrito") {
         else
             $consult = mysql_query("insert into carritoxitem (cod_carrito,cod_herramienta,cantidad) values ($cod_carrito,$cod_herramienta,$cantidad)");
     }else if ($tipo == "eliminar") {
+        
+        echo "Elemento eliminado correctamente";
         $cod_carrito = $_POST['radiocarrito'];
         $cod_herramienta = $_POST['radioherramienta'];
 
         $consult = mysql_query("DELETE FROM carritoxitem WHERE cod_herramienta=$cod_herramienta and cod_carrito=$cod_carrito");
     } else {
+        
+        echo "Elemento actualizado correctamente";
         $cod_carrito = $_POST['cod_carrito'];
         $cod_herramienta = $_POST['cod_herramienta'];
         $cantidad = $_POST['cantidad'];

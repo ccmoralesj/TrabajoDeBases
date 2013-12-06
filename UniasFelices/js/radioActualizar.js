@@ -6,6 +6,7 @@
             $(document).ready(function()
             {
                 $("input[name=radioactualizar]").click(function() {
+                    //alert("hola");
                     //alert("Bien!!!, la edad seleccionada es: " + $('input:radio[name=radioactualizar]:checked').val());
                     var variable;
                     var codigo;
@@ -27,6 +28,7 @@
                 $("input[name=radioactualizar3]").click(function() {
                     //alert("Bien!!!, la edad seleccionada es: " + $('input:radio[name=radioactualizar]:checked').val());
                     //alert("poracavamos");
+                    //alert("hola");
                     var variable;
                     var codigo;
                     codigo = $('input:radio[name=radioactualizar3]:checked').val();
@@ -45,7 +47,7 @@
                     //alert("Bien!!!, la edad seleccionada es: " + $(this).val());  
                 });
                 $("input:radio[name=radiocarrito]").click(function() {
-
+                        //alert("hola");
                     var elementos = document.getElementsByName("radiocarrito");
 
                     for (var i = 0; i < elementos.length; i++) {
@@ -60,6 +62,7 @@
                 $("input[name=radioactualizar2]").click(function() {
                     //alert("Bien!!!, la edad seleccionada es: " + $('input:radio[name=radioactualizar]:checked').val());
                     //alert("poracavamos");
+                    //alert("hola");
                     var variable;
                     var codigo;
                     var codigo2;
@@ -85,6 +88,7 @@
                         dataType: "html",
                         data: "nombre=" + variable + "&codigo=" + codigo + "&codigo2=" + codigo2,
                         success: function(datos) {
+                            
                             document.getElementById('cargar2').innerHTML = datos;
                         }
                     });

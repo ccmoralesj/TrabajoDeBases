@@ -1,38 +1,48 @@
+
 #fondo{
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     display: block;
 }
 
 #fondo:after{
     content: "";
-    background:url("../img/header.jpg") ;
-    background-size: cover; 	
+    background:url("../img/suave2.jpg") ;
+    background-repeat: repeat;
     opacity: 0.5;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    position: absolute;
+    position: fixed;
     z-index: -1;   
 }
 
-#barraBusqueda{
+.barraBusqueda{
 
+    float: left;
     width: 100%;
-    height: 40px;
-    position: absolute;
-    background: rgba(0,0,0,01.35);
-    top:0;
-    left: 0;
-    padding: 10px;
+    height: 35px;
+    background: rgba(0,0,0,0.7);
+    position: fixed;
+    padding: 15px;
     margin: 0;
+    left:0;
+    color: white;
 
 
 }
 
+#barraBusquedaSuperior{
+    top:0;
+    
+    
+}
 
-#inputBusqueda{
+#barraBusquedaInferior{
+    bottom: 0;
+}
+.inputBusqueda{
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -41,7 +51,7 @@
     width: 200px;
     float: right;
     margin-right: 50px;
-    margin-top: 8px;
+    margin-top: 0;
     opacity: 01.3;
 
 }
@@ -53,9 +63,9 @@
 
 
 #container{
-    margin-top: 150px;
+    margin-top: 80px;
     text-align: center;
-    margin-left: 200px;
+    margin-left: 185px;
     margin-right: auto;
     width: 70%;
     padding: 25px;
@@ -70,6 +80,7 @@ h2{
 }
 
 .Elemento{
+    
     vertical-align: center;
 
     position: static;
@@ -155,20 +166,146 @@ ul li:hover{
     color: black;
     
     text-shadow: white 1px 1px 10px;
-    -webkit-transform: scale(1.3);
-    -moz-transform: scale(1.3);
-    -o-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
 }
 
 .mostrando{
-    visibility: visible;
-    position: relative;
+    
+    padding:20px;
+        
+    position: absolute;
+	visibility: visible;
+	top:150px;	
+	left:500px;
+        color: black;
+	width: 300px;
+	height: 300px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+	-moz-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+	background: #FFF;
+	
+	position: absolute;
+	overflow: scroll;
 }
 
+.mostrando:hover{
+    position: absolute;
+}
 
 .consultaForm{
     margin:0;
     padding: 20px;
+}
+
+
+#containerForm{
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+
+.boton{
+    visibility: hidden;
+    float: right !important;
+}
+
+/*.contenedor{
+    
+    padding:20px;
+        
+    position: absolute;
+	top:100px;	
+	left:500px;
+        color: red !important;
+	width: 300px;
+	height: 300px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+	-moz-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+	background: #FFF;
+	
+	position: absolute;
+}*/
+
+
+.botones{
+    margin-top: 30px;
+    text-align: center;
+    vertical-align: central;
+    width: 140px;
+    height: 457px;
+    margin-left: -10px;
+    top: 50px;
+    padding: 10px;
+    display: block;
+    background: rgba(0,0,0,0.2);
+    position: absolute;
+    border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+        margin-bottom: 60px !important;
+        left: -10px;
+}
+
+.containerBoton{
+    text-align:justify;
+text-justify:inter-word;
+    background: rgba(0,0,0,0.6);
+    padding: 13px;
+    width: auto;
+    margin: 5px; 
+    margin-bottom: 15px;
+     border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+   color: white;
+   
+}
+
+.btnConsulta{
+    
+    border:0;
+    padding: 7px;
+    border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+    
+}
+
+.btnConsulta:hover{
+    background:FFFF99; 
+    box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
+	-moz-box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
+        cursor: pointer;
+        
+            
+}
+
+
+.todo{
+    margin: 0;
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/suave2.jpg");
+     background-repeat: repeat;
+    
+    
 }

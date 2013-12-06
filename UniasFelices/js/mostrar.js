@@ -4,6 +4,8 @@ var anterior="";
 var flag=1;
 var cont=1;
 function main(){
+    
+        
 
 	$("ul li").click(function() {
            
@@ -13,6 +15,7 @@ function main(){
            if(!(cont==1 && anterior==tt)){
             
             $(tt).addClass("mostrando");
+            $("#containerForm").fadeIn("slow");
             if(flag==1){
                 anterior=tt;
                 flag=2;
@@ -20,8 +23,14 @@ function main(){
                 $(anterior).removeClass("mostrando");
                 anterior=tt;
             }
+            
            }
          
 	});
+        
+        $("#containerForm").click(function(){
+            $("#containerForm").fadeOut("slow");
+             $(anterior).removeClass("mostrando");
+        });
 }
 

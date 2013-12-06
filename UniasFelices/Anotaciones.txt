@@ -13,7 +13,7 @@ en las presentaciones), por lo tanto deben ser controladas por php en nuestro ca
 
 4. Hay que hacer un Check (php), para controlar que el TIPO de la entidad CITA (ver BaseDeDatos.sql)
 Sólo pueda ser 'D'(Domicilio) o 'L'(Local).
-
+aa
 
 
 

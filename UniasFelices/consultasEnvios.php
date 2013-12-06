@@ -25,9 +25,11 @@ if ($numCons == "1") {
         echo "En el momento no hay ningun elemento que coincida con la busqueda";
     else {
         
-        echo "El resultado obtenido es: <br><BR>";
+        echo "Los carritos que no tienen ninguna herramienta son: <br><BR>";
+        $cont=0;
         while ($datos = mysql_fetch_array($consult)) {
                 
+            echo "Carrito ".(++$cont)."<br>";
             echo "Codigo: ".$datos['cod'] . "<br>";
             echo "Color: ".$datos['color'] . "</br><br>";
         }
@@ -42,11 +44,13 @@ if ($numCons == "1") {
     if ($nf == 0)
         echo "En el momento no hay ningun elemento que coincida con la busqueda";
     else {
-        echo "El resultado obtenido es: <br><BR>";
+        echo "Los productos que solo estan en un carrito son: <br><BR>";
         while ($datos = mysql_fetch_array($consult)) {
                // echo "cosa";
             echo "El codigo es: ".$datos['codigo'] . '<br>';
             echo "El nombre es: ".$datos['nombre']."<br>";
+            echo "El Precio es: ".$datos['precio_compra']."<br>";
+            echo "El tipo es: ".$datos['tipo']."<br>";
         }
     }
 }

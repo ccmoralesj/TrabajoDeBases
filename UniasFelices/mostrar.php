@@ -1,12 +1,4 @@
-<html>
-    <head>
-         <link rel="stylesheet" href="css/general.css" />
-    </head>
-        
-    <body>
-        <section class="todo">
-            
-            <div class="contenedor">
+
     
 <?php
 
@@ -20,9 +12,9 @@ $con=mysql_connect("localhost","root","");
      $nf=mysql_num_rows($consult);
      $datos=mysql_fetch_array($consult);
      ?>
-     <label for="laberlcolor">Codigo:</label>
+     <label for="laberlcolor">Codigo:</label><br>
      <input name="cod" type="text" size="27"  readonly="readonly" value="<?php  echo $datos['cod'] ?>" required/><br>
-     <label for="laberlcolor">Color:</label>
+     <label for="laberlcolor">Color:</label><br>
      <input name="color" type="text" size="27" value="<?php  echo $datos['color'] ?>" required/>
          <?php
 			
@@ -31,11 +23,11 @@ $con=mysql_connect("localhost","root","");
      $nf=mysql_num_rows($consult);
      $datos=mysql_fetch_array($consult);
      ?>
-     <label for="laberlcolor">Codigo:</label>
+     <label for="laberlcolor">Codigo:</label><br>
      <input name="cod" type="text" size="27"  readonly="readonly" value="<?php  echo $datos['codigo'] ?>" required/><br> 
-     <label for="laberlcolor">Nombre:</label>
+     <label for="laberlcolor">Nombre:</label><br>
      <input name="nombre" type="text" size="27" value="<?php  echo $datos['nombre'] ?>" required/><br>
-     <label for="laberlcolor">Precio de Compra:</label>
+     <label for="laberlcolor">Precio de Compra:</label><br>
      <input name="precio" type="number" size="27" value="<?php  echo $datos['precio_compra'] ?>" required/>
          <?php
 
@@ -45,16 +37,13 @@ $con=mysql_connect("localhost","root","");
        $nf=mysql_num_rows($consult);
      $datos=mysql_fetch_array($consult);
      ?>
-      <label for="laberlcolor">Codigo de Carrito:</label>
+      <label for="laberlcolor">Codigo de Carrito:</label><br>
      <input name="cod_carrito" type="text" size="27"  readonly="readonly" value="<?php  echo $datos['cod_carrito'] ?>" required/><br> 
-     <label for="laberlcolor">Código de Herramienta:</label>
+     <label for="laberlcolor">Código de Herramienta:</label><br>
      <input name="cod_herramienta" type="text" size="27"  readonly="readonly" value="<?php  echo $datos['cod_herramienta'] ?>" required/><br>
-     <label for="laberlcolor">Cantidad:</label>
+     <label for="laberlcolor">Cantidad:</label><br>
      <input name="cantidad" type="number" size="27" value="<?php  echo $datos['cantidad'] ?>" required/>
      <?php
  }
 ?>
-            
-            </div>
-        </section>
-    </body>
+           

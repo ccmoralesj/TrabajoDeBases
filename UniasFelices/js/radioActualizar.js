@@ -5,9 +5,13 @@
 
             $(document).ready(function()
             {
+                
+                
+                
                 $("input[name=radioactualizar]").click(function() {
                     //alert("hola");
                     //alert("Bien!!!, la edad seleccionada es: " + $('input:radio[name=radioactualizar]:checked').val());
+                    $("#btnActualizar1").css("display","block");
                     var variable;
                     var codigo;
                     codigo = $('input:radio[name=radioactualizar]:checked').val();
@@ -31,6 +35,7 @@
                     //alert("hola");
                     var variable;
                     var codigo;
+                    $("#btnActualizar3").css("display","block");
                     codigo = $('input:radio[name=radioactualizar3]:checked').val();
                     //alert(codigo);
                     variable = "herramienta";
@@ -48,8 +53,9 @@
                 });
                 $("input:radio[name=radiocarrito]").click(function() {
                         //alert("hola");
+                        $("#btnActualizar").css("display","block");
                     var elementos = document.getElementsByName("radiocarrito");
-
+                    
                     for (var i = 0; i < elementos.length; i++) {
                         //alert(" Elemento: " + elementos[i].value + "\n Seleccionado: " + elementos[i].checked);
                         if (elementos[i].checked == true) {
@@ -66,6 +72,7 @@
                     var variable;
                     var codigo;
                     var codigo2;
+                     $("#btnActualizar2").css("display","block");
                     codigo = $('input:radio[name=radioactualizar2]:checked').val();
 
                     var elementos = document.getElementsByName("radioactualizar2");

@@ -35,8 +35,8 @@
 
 #barraBusquedaSuperior{
     top:0;
-    
-    
+
+
 }
 
 #barraBusquedaInferior{
@@ -80,7 +80,7 @@ h2{
 }
 
 .Elemento{
-    
+
     vertical-align: center;
 
     position: static;
@@ -90,7 +90,7 @@ h2{
 
     display: table-cell;
     background-color: rgba(0,0,0,0.7);
-    
+
     -webkit-transition: background-color linear .5s;
     -moz-transition: background-color linear .5s;
     -o-transition: background-color linear .5s;
@@ -126,7 +126,7 @@ a{
 }
 
 .eliminar{
-    
+
     visibility: hidden;
     position: fixed;
 }
@@ -153,7 +153,7 @@ ul li{
     -moz-transition: text-shadow linear .8s;
     -o-transition: text-shadow linear .8s;
     transition: text-shadow linear .85s;
-    
+
     -webkit-transition: color linear .8s;
     -moz-transition: color linear .8s;
     -o-transition: color linear .8s;
@@ -164,31 +164,31 @@ ul li{
 
 ul li:hover{
     color: black;
-    
+
     text-shadow: white 1px 1px 10px;
 }
 
 .mostrando{
-    
+
     padding:20px;
-        
+
     position: absolute;
-	visibility: visible;
-	top:150px;	
-	left:500px;
-        color: black;
-	width: 300px;
-	height: 300px;
-	border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
-	-moz-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
-	-webkit-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
-	background: #FFF;
-	
-	position: absolute;
-	overflow: scroll;
+    visibility: visible;
+    top:150px;	
+    left:500px;
+    color: black;
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+    -moz-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+    -webkit-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+    background: #FFF;
+
+    position: absolute;
+    overflow: scroll;
 }
 
 .mostrando:hover{
@@ -220,26 +220,28 @@ ul li:hover{
     float: right !important;
 }
 
-/*.contenedor{
+.contenedor{
     
     padding:20px;
         
     position: absolute;
-	top:100px;	
-	left:500px;
-        color: red !important;
-	width: 300px;
-	height: 300px;
-	border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
-	-moz-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
-	-webkit-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
-	background: #FFF;
-	
-	position: absolute;
-}*/
+        top:100px;	
+        left:370px ;
+        color: black;
+        
+        font-size:25px; 
+        width: 500px ;
+        height: auto;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+        -moz-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+        -webkit-box-shadow: 1px 1px 7px rgba(255,255,255,0.5);
+        background: #FFF;
+        
+        position: absolute;
+}
 
 
 .botones{
@@ -255,45 +257,45 @@ ul li:hover{
     background: rgba(0,0,0,0.2);
     position: absolute;
     border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-        margin-bottom: 60px !important;
-        left: -10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    margin-bottom: 60px !important;
+    left: -10px;
 }
 
 .containerBoton{
     text-align:justify;
-text-justify:inter-word;
+    text-justify:inter-word;
     background: rgba(0,0,0,0.6);
     padding: 13px;
     width: auto;
     margin: 5px; 
     margin-bottom: 15px;
-     border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-   color: white;
-   
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    color: white;
+
 }
 
 .btnConsulta{
-    
+
     border:0;
     padding: 7px;
     border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-    
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+
 }
 
 .btnConsulta:hover{
     background:FFFF99; 
     box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
-	-moz-box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
-	-webkit-box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
-        cursor: pointer;
-        
-            
+    -moz-box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
+    -webkit-box-shadow: 1px 1px 13px rgba(255,255,255,0.5);
+    cursor: pointer;
+
+
 }
 
 
@@ -305,7 +307,13 @@ text-justify:inter-word;
     height: 100%;
     width: 100%;
     background-image: url("../img/suave2.jpg");
-     background-repeat: repeat;
-    
-    
+    background-repeat: repeat;
+
+
 }
+
+
+#btnActualizar1,#btnActualizar2, #btnActualizar3{
+    display: none;
+}
+

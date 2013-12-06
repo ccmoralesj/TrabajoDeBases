@@ -1,3 +1,13 @@
+<html>
+    <head>
+         <link rel="stylesheet" href="css/general.css" />
+    </head>
+        
+    <body>
+        <section class="todo">
+            
+            <div class="contenedor">
+
 <?php
 
 $entidad = $_POST['entidad'];
@@ -14,6 +24,8 @@ mysql_select_db("spa");
 if ($entidad == "carrito") {
     //insertar
     if ($tipo == "insertar") {
+        
+       echo"El elemento se inserto correctamente<br>";
         $color = $_POST['color'];
         $codigo = $_POST['codigo'];
         $consult = mysql_query(" select * from carrito WHERE cod=$codigo");
@@ -48,6 +60,7 @@ if ($entidad == "carrito") {
         $codigo = $_POST['codigo'];
         $consult = mysql_query(" select * from herramienta WHERE codherr=$codigo");
         $nf = mysql_num_rows($consult);
+        echo"El elemento se inserto correctamente<br>";
         if ($nf == 1)
             echo "Elemento repetido, violacion de la clave primaria, intentalo de nuevo";
         else {
@@ -80,6 +93,7 @@ if ($entidad == "carrito") {
         $cantidad = $_POST['cantidad'];
         $consult = mysql_query(" select * from carritoxitem WHERE cod_carrito=$cod_carrito and cod_herramienta=$cod_herramienta");
         $nf = mysql_num_rows($consult);
+        echo"El elemento se inserto correctamente<br>";
         if ($nf == 1)
             echo "Elemento repetido, violacion de la clave primaria, intentalo de nuevo";
         else
@@ -101,3 +115,11 @@ if ($entidad == "carrito") {
     }
 }
 ?>
+                <script>
+                 var delay=3500//1 seconds
+    setTimeout(function(){
+        window.location.replace('index.php');
+    //your code to be executed after 1 seconds
+    },delay)
+    
+            </script>

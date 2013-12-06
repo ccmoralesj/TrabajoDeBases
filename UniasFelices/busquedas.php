@@ -36,7 +36,7 @@ if($numBusqueda=="1"){
     $color= mysql_query("Select c.color from carrito c where c.cod='$var'");
     
     $datos = mysql_fetch_array($color);
-    echo "El color es: " .$datos['color']."<br> ";
+    
     $consulta=  mysql_query("SELECT c.cod, c.color, h.nombre, ci.cantidad, ci.cod_carrito FROM carritoxitem ci, carrito c, item h WHERE ci.cod_carrito ='$var' AND c.cod ='$var' and h.codigo=ci.cod_herramienta");
     $nf = mysql_num_rows($consulta);
     
@@ -45,13 +45,12 @@ if($numBusqueda=="1"){
       
         echo "Este elemento no se encuentra en la base de datos";
     else {
-        echo "los elementos son: <br>";
+        echo "los elementos son: <br><br>";
+        $cont=0;
         while ($datos = mysql_fetch_array($consulta)) {
-            
-            echo "Codigo CarritoxItem: ".$datos['cod_carrito'] . "</br>";
-            echo "Color carrito: ".$datos['color'] . "<br>";
+            echo "Herramienta ".(++$cont).":<br>";
             echo "Item: ".$datos['nombre'] . "<br>";
-            echo "cantidad de elementos: ".$datos['cantidad'] . "<br>";
+            echo "cantidad de esta herramienta en carrito: ".$datos['cantidad'] . "<br><br>";
             
             
         }
@@ -68,7 +67,7 @@ if($numBusqueda=="1"){
         echo "Este elemento no se encuentra en la base de datos";
     else {
         while ($datos = mysql_fetch_array($consulta)) {
-            echo "EL elemento resultante es:<br><br>";
+            echo "Carrito:<br><br>";
             //echo $datos['cod'] . "->";
             echo "Codigo carrito: ".$datos['cod_carrito'] . "</br>";
             echo "Color del carrito: ".$datos['color'] . "<BR>";
